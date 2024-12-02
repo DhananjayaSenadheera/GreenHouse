@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6B662E0C-65C1-4507-9132-57E72651B81C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationService", "AuthenticationService", "{76802F51-CF7A-4710-A516-F9FDF10C1ED2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SensorDataService", "SensorDataService", "{5269240D-CACA-409E-932E-AB02C69B2DFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationService", "NotificationService", "{9D171908-4692-4D57-A2AA-B62906C1724C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.API", "SensorDataService.API\SensorDataService.API.csproj", "{783314AC-C5E1-4181-8886-85F17F89BF87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.Domain", "SensorDataService.Domain\SensorDataService.Domain.csproj", "{28F0FD4A-2606-492C-830E-6A97AB2C1AB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.Application", "SensorDataService.Application\SensorDataService.Application.csproj", "{43CF60AF-5E50-4642-9D0C-5610621624DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.Infrastructure", "SensorDataService.Infrastructure\SensorDataService.Infrastructure.csproj", "{4287B150-E568-4094-946D-DF8E89F16DFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{783314AC-C5E1-4181-8886-85F17F89BF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{783314AC-C5E1-4181-8886-85F17F89BF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{783314AC-C5E1-4181-8886-85F17F89BF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{783314AC-C5E1-4181-8886-85F17F89BF87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F0FD4A-2606-492C-830E-6A97AB2C1AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F0FD4A-2606-492C-830E-6A97AB2C1AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F0FD4A-2606-492C-830E-6A97AB2C1AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F0FD4A-2606-492C-830E-6A97AB2C1AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CF60AF-5E50-4642-9D0C-5610621624DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CF60AF-5E50-4642-9D0C-5610621624DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CF60AF-5E50-4642-9D0C-5610621624DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CF60AF-5E50-4642-9D0C-5610621624DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4287B150-E568-4094-946D-DF8E89F16DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4287B150-E568-4094-946D-DF8E89F16DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4287B150-E568-4094-946D-DF8E89F16DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4287B150-E568-4094-946D-DF8E89F16DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{76802F51-CF7A-4710-A516-F9FDF10C1ED2} = {6B662E0C-65C1-4507-9132-57E72651B81C}
+		{5269240D-CACA-409E-932E-AB02C69B2DFA} = {6B662E0C-65C1-4507-9132-57E72651B81C}
+		{9D171908-4692-4D57-A2AA-B62906C1724C} = {6B662E0C-65C1-4507-9132-57E72651B81C}
+		{783314AC-C5E1-4181-8886-85F17F89BF87} = {5269240D-CACA-409E-932E-AB02C69B2DFA}
+		{28F0FD4A-2606-492C-830E-6A97AB2C1AB9} = {5269240D-CACA-409E-932E-AB02C69B2DFA}
+		{43CF60AF-5E50-4642-9D0C-5610621624DF} = {5269240D-CACA-409E-932E-AB02C69B2DFA}
+		{4287B150-E568-4094-946D-DF8E89F16DFA} = {5269240D-CACA-409E-932E-AB02C69B2DFA}
+	EndGlobalSection
+EndGlobal
