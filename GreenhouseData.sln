@@ -16,6 +16,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.Applicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.Infrastructure", "SensorDataService.Infrastructure\SensorDataService.Infrastructure.csproj", "{4287B150-E568-4094-946D-DF8E89F16DFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.Domain", "AuthenticationService.Domain\AuthenticationService.Domain.csproj", "{D55195A2-61E3-433C-9913-F680B7B5DCC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.Application", "AuthenticationService.Application\AuthenticationService.Application.csproj", "{B17C85A5-F9FE-4AF3-B63D-5A4D8588DFF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.Infrastructure", "AuthenticationService.Infrastructure\AuthenticationService.Infrastructure.csproj", "{EFAE6A1A-E8AC-49E2-84C8-AB1A267CDB50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.API", "AuthenticationService.API\AuthenticationService.API.csproj", "{CCBD75E4-5310-4484-975A-71F02C9E3974}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +46,22 @@ Global
 		{4287B150-E568-4094-946D-DF8E89F16DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4287B150-E568-4094-946D-DF8E89F16DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4287B150-E568-4094-946D-DF8E89F16DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55195A2-61E3-433C-9913-F680B7B5DCC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55195A2-61E3-433C-9913-F680B7B5DCC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55195A2-61E3-433C-9913-F680B7B5DCC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55195A2-61E3-433C-9913-F680B7B5DCC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17C85A5-F9FE-4AF3-B63D-5A4D8588DFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17C85A5-F9FE-4AF3-B63D-5A4D8588DFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17C85A5-F9FE-4AF3-B63D-5A4D8588DFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17C85A5-F9FE-4AF3-B63D-5A4D8588DFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFAE6A1A-E8AC-49E2-84C8-AB1A267CDB50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFAE6A1A-E8AC-49E2-84C8-AB1A267CDB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFAE6A1A-E8AC-49E2-84C8-AB1A267CDB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFAE6A1A-E8AC-49E2-84C8-AB1A267CDB50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCBD75E4-5310-4484-975A-71F02C9E3974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCBD75E4-5310-4484-975A-71F02C9E3974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCBD75E4-5310-4484-975A-71F02C9E3974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCBD75E4-5310-4484-975A-71F02C9E3974}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{76802F51-CF7A-4710-A516-F9FDF10C1ED2} = {6B662E0C-65C1-4507-9132-57E72651B81C}
@@ -47,5 +71,9 @@ Global
 		{28F0FD4A-2606-492C-830E-6A97AB2C1AB9} = {5269240D-CACA-409E-932E-AB02C69B2DFA}
 		{43CF60AF-5E50-4642-9D0C-5610621624DF} = {5269240D-CACA-409E-932E-AB02C69B2DFA}
 		{4287B150-E568-4094-946D-DF8E89F16DFA} = {5269240D-CACA-409E-932E-AB02C69B2DFA}
+		{D55195A2-61E3-433C-9913-F680B7B5DCC2} = {76802F51-CF7A-4710-A516-F9FDF10C1ED2}
+		{B17C85A5-F9FE-4AF3-B63D-5A4D8588DFF4} = {76802F51-CF7A-4710-A516-F9FDF10C1ED2}
+		{EFAE6A1A-E8AC-49E2-84C8-AB1A267CDB50} = {76802F51-CF7A-4710-A516-F9FDF10C1ED2}
+		{CCBD75E4-5310-4484-975A-71F02C9E3974} = {76802F51-CF7A-4710-A516-F9FDF10C1ED2}
 	EndGlobalSection
 EndGlobal
