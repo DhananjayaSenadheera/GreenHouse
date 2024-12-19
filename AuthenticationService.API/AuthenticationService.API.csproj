@@ -12,4 +12,12 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Middleware\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AuthenticationService.Application\AuthenticationService.Application.csproj" />
+    </ItemGroup>
+
 </Project>
