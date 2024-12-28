@@ -1,5 +1,6 @@
 using AuthenticationService.Domain.Entities;
 using AuthenticationService.Domain.Interfaces;
+using AuthenticationService.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthenticationService.Infrastructure.Repositories;
@@ -7,9 +8,9 @@ namespace AuthenticationService.Infrastructure.Repositories;
 public class UserRepository: IUserRepository
 {
 
-    private readonly DbContext _dbContext;
+    private readonly DatabaseContext _dbContext;
     
-    public UserRepository(DbContext dbContext)
+    public UserRepository(DatabaseContext dbContext)
     {
         _dbContext = dbContext;
     }
@@ -23,5 +24,22 @@ public class UserRepository: IUserRepository
     {
         await _dbContext.Set<User>().AddAsync(user);
         await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<User?> GetUserByIdAsync(Guid userId)
+    {
+        return await _dbContext.Users.FindAsync(userId);
+    }
+
+    public async Task UpdateUserAsync(User user)
+    {
+       _dbContext.Set<User>().Update(user);
+       await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task DeleteUserAsync(User user)
+    {
+       _dbContext.Users.Remove(user);
+       await _dbContext.SaveChangesAsync();
     }
 }

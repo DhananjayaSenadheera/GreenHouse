@@ -1,5 +1,16 @@
 using System.Text;
+using AuthenticationService.Application.Interfaces;
+using AuthenticationService.Application.UseCases;
+using AuthenticationService.Application.UseCases.DeleteUser;
+using AuthenticationService.Application.UseCases.EditUser;
+using AuthenticationService.Application.UseCases.GetUser;
+using AuthenticationService.Application.UseCases.Login;
+using AuthenticationService.Domain.Interfaces;
+using AuthenticationService.Infrastructure.Configurations;
+using AuthenticationService.Infrastructure.Repositories;
+using AuthenticationService.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,18 +21,37 @@ builder.Services.AddSwaggerGen();
 
 // Access the Configuration object
 var configuration = builder.Configuration;
-// Add JWT Authentication
+//DbContext
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Get Auth0 configuration
+var auth0Settings = builder.Configuration.GetSection("Auth0");
+
+//JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
+        options.Authority = $"https://{auth0Settings["Domain"]}";
+        options.Audience = auth0Settings["Audience"];
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration["Jwt:Key"])),
-            ValidateIssuer = false,
-            ValidateAudience = false
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = $"https://{auth0Settings["Domain"]}",
+            ValidAudience = auth0Settings["Audience"]
         };
     });
+
+// Register Repositories and Use Cases
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+builder.Services.AddScoped<RegisterUserUseCase>();
+builder.Services.AddScoped<LoginUserUseCase>();
+builder.Services.AddScoped<GetUserUseCase>();
+builder.Services.AddScoped<EditUserUseCase>();
+builder.Services.AddScoped<DeleteUserUseCase>();
+
 builder.Services.AddControllers();
 var app = builder.Build();
 
@@ -36,7 +66,6 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Root path
     });
 }
-
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

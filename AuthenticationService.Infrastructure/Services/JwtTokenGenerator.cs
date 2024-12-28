@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using AuthenticationService.Application.Interfaces;
 using AuthenticationService.Domain.Entities;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace AuthenticationService.Infrastructure.Services;
@@ -10,9 +11,9 @@ public class JwtTokenGenerator : IJwtTokenGenerator
 {
     private readonly string _secretKey;
 
-    public JwtTokenGenerator(string secretKey)
+    public JwtTokenGenerator(IConfiguration configuration)
     {
-        _secretKey = secretKey;
+        _secretKey = configuration["Jwt:SecretKey"];
     }
     public string GenerateToken(User user)
     {
