@@ -21,12 +21,15 @@ public class EditUserUseCase
                 Success = false
             };
         }
-
         if (!string.IsNullOrEmpty(request.NewPassword))
         {
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.NewPassword);
         }
-
+        
+        if (!string.IsNullOrEmpty(request.NewEmail))
+        {
+            user.Email = request.NewEmail;
+        }
         await _userRepository.UpdateUserAsync(user);
         return new EditUserResponse
         {
