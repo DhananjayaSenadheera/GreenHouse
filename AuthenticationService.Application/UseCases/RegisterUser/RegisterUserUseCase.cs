@@ -14,11 +14,31 @@ public class RegisterUserUseCase
 
     public async Task<RegisterUserResponse> ExecuteAsync(RegisterUserRequest request)
     {
+        if (request.Email is null || request.Email.Length < 6)
+        {
+            return new RegisterUserResponse{Message = "Email address cannot be empty"};
+        }
+
+        if (request.Password is null || request.Password.Length < 6)
+        {
+            return new RegisterUserResponse{Message = "Password cannot be empty"};
+        }
+
+        if (request.Fname is null)
+        {
+            return new RegisterUserResponse{Message = "First name cannot be empty"};
+        }
+
+        if (request.Lname is null)
+        {
+            return new RegisterUserResponse{Message = "Last name cannot be empty"};
+        }
         var exsistingUser = await _userRepository.GetUserByEmailAsync(request.Email);
         if (exsistingUser != null)
         {
             return new RegisterUserResponse{Message = "User already exists"};
         }
+        
         var hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
         var user = new User
         {
@@ -26,6 +46,8 @@ public class RegisterUserUseCase
             Email = request.Email,
             PasswordHash = hashedPassword,
             Role = request.Role,
+            Fname = request.Fname,
+            Lname = request.Lname
         };
         
         await _userRepository.AddUserAsync(user);

@@ -30,6 +30,14 @@ public class EditUserUseCase
         {
             user.Email = request.NewEmail;
         }
+        if (!string.IsNullOrEmpty(request.NewFname))
+        {
+            user.Email = request.NewFname;
+        }
+        if (!string.IsNullOrEmpty(request.NewLname))
+        {
+            user.Email = request.NewLname;
+        }
         await _userRepository.UpdateUserAsync(user);
         return new EditUserResponse
         {

@@ -46,6 +46,15 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
         };
     });*/
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") // Allow frontend origin
+            .AllowAnyHeader()                    // Allow all headers
+            .AllowAnyMethod();                   // Allow all HTTP methods
+    });
+});
 // JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -86,7 +95,7 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Root path
     });
 }
-
+app.UseCors("AllowSpecificOrigins");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
