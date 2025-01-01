@@ -21,7 +21,9 @@ public class GetUserUseCase
         return new GetUserResponse
         {
             Email = user.Email,
-            Role = user.Role
+            Role = user.Role,
+            Fname = user.Fname,
+            Lname = user.Lname,
         };
     }
 }

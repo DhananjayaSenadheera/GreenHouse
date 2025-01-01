@@ -10,7 +10,7 @@ namespace AuthenticationService.Infrastructure.Services;
 
 public class JwtTokenGenerator : IJwtTokenGenerator
 {
-    private readonly string _secretKey;
+    private readonly string? _secretKey;
     private readonly string _issuer;
     private readonly string _audience;
    

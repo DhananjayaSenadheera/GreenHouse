@@ -25,27 +25,6 @@ var configuration = builder.Configuration;
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Get Auth0 configuration
-//var auth0Settings = builder.Configuration.GetSection("Auth0");
-//var jwtSettings = builder.Configuration.GetSection("Jwt");
-
-//JWT Authentication
-/*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        //options.Authority = $"https://{auth0Settings["Domain"]}";
-        //options.Audience = auth0Settings["Audience"];
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            //ValidIssuer = $"https://{auth0Settings["Domain"]}",
-            ValidIssuer = "GreenhouseAuthenticationService",
-            //ValidAudience = auth0Settings["Audience"]
-        };
-    });*/
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", policy =>
