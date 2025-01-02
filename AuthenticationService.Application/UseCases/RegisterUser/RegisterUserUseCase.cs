@@ -40,6 +40,7 @@ public class RegisterUserUseCase
         }
         
         var hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
+        
         var user = new User
         {
             Id = Guid.NewGuid(),

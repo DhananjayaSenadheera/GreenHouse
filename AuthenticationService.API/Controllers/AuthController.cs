@@ -1,12 +1,8 @@
-using AuthenticationService.Application.DTOs;
-using AuthenticationService.Application.Interfaces;
 using AuthenticationService.Application.UseCases;
 using AuthenticationService.Application.UseCases.DeleteUser;
 using AuthenticationService.Application.UseCases.EditUser;
 using AuthenticationService.Application.UseCases.GetUser;
 using AuthenticationService.Application.UseCases.Login;
-using AuthenticationService.Domain.Entities;
-using AuthenticationService.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
