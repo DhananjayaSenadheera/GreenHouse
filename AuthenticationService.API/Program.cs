@@ -1,10 +1,13 @@
 using System.Text;
+using AuthenticationService.Application;
+using AuthenticationService.Application.Helpers;
 using AuthenticationService.Application.Interfaces;
 using AuthenticationService.Application.UseCases;
 using AuthenticationService.Application.UseCases.DeleteUser;
 using AuthenticationService.Application.UseCases.EditUser;
 using AuthenticationService.Application.UseCases.GetUser;
 using AuthenticationService.Application.UseCases.Login;
+using AuthenticationService.Application.UseCases.Users.Commands.Create;
 using AuthenticationService.Domain.Interfaces;
 using AuthenticationService.Infrastructure.Configurations;
 using AuthenticationService.Infrastructure.Repositories;
@@ -48,11 +51,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
         };
     });
-
+builder.Services.AddApplication();
 // Repositories and Services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
-
+builder.Services.AddSingleton<PasswordEncryptionHelper>();
 // Use Cases
 builder.Services.AddScoped<RegisterUserUseCase>();
 builder.Services.AddScoped<LoginUserUseCase>();

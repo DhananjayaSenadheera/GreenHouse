@@ -12,6 +12,16 @@
 
     <ItemGroup>
       <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+      <PackageReference Include="MediatR" Version="12.4.1" />
+      <PackageReference Include="Riok.Mapperly" Version="4.1.1" />
+      <PackageReference Include="Voguedi.Utils.AutoMapper" Version="2.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="UseCases\Users\Commands\Delete\" />
+      <Folder Include="UseCases\Users\Commands\Update\" />
+      <Folder Include="UseCases\Users\Dtos\" />
+      <Folder Include="UseCases\Users\Quaries\" />
     </ItemGroup>
 
 </Project>

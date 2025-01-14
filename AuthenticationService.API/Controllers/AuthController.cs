@@ -3,6 +3,8 @@ using AuthenticationService.Application.UseCases.DeleteUser;
 using AuthenticationService.Application.UseCases.EditUser;
 using AuthenticationService.Application.UseCases.GetUser;
 using AuthenticationService.Application.UseCases.Login;
+using AuthenticationService.Application.UseCases.Users.Commands.Create;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +12,7 @@ namespace AuthenticationService.API.Controllers;
 
 [ApiController]
 [Route("api/auth")]
-public class AuthController : ControllerBase
+public class AuthController(IMediator mediator) : ControllerBase
 {
     private readonly RegisterUserUseCase _registerUserUseCase;
     private readonly LoginUserUseCase _loginUserUseCase;
@@ -18,27 +20,29 @@ public class AuthController : ControllerBase
     private readonly EditUserUseCase _editUserUseCase;
     private readonly DeleteUserUseCase _deleteUserUseCase;
     
-    public AuthController(RegisterUserUseCase registerUserUseCase, LoginUserUseCase loginUserUseCase, GetUserUseCase getUserUseCase, EditUserUseCase editUserUseCase, DeleteUserUseCase deleteUserUseCase)
+    /*public AuthController(RegisterUserUseCase registerUserUseCase, LoginUserUseCase loginUserUseCase, GetUserUseCase getUserUseCase, EditUserUseCase editUserUseCase, DeleteUserUseCase deleteUserUseCase)
     {
         _registerUserUseCase = registerUserUseCase;
         _loginUserUseCase = loginUserUseCase;
         _getUserUseCase = getUserUseCase;
         _editUserUseCase = editUserUseCase;
         _deleteUserUseCase = deleteUserUseCase;
-    }
+    }*/
     
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] RegisterUserRequest registerUserRequest)
+    public async Task<IActionResult> Register([FromBody] CreateUserCommand command)
     {
-        var response = await _registerUserUseCase.ExecuteAsync(registerUserRequest);
+        /*var response = await _registerUserUseCase.ExecuteAsync(registerUserRequest);
         if (response.Message == "User already exists" )
         {
             return BadRequest(new { message = response.Message });
         }
-        return Ok(response);
+        return Ok(response);*/
+        var result = await mediator.Send(command);
+        return Ok(result);
     }
 
-    [HttpPost("Login")]
+    /*[HttpPost("Login")]
     public async Task<IActionResult> Login([FromBody] LoginUserRequest  loginUserRequest)
     {
        var response = await _loginUserUseCase.ExecuteAsync(loginUserRequest);
@@ -113,5 +117,5 @@ public class AuthController : ControllerBase
             return NotFound(new { message = response.Message });
         }
         return Ok(new { message = response.Message });
-    }
+    }*/
 }

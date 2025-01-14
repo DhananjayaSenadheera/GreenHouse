@@ -1,3 +1,4 @@
+using AuthenticationService.Application.Helpers;
 using AuthenticationService.Domain.Entities;
 using AuthenticationService.Domain.Interfaces;
 
@@ -6,10 +7,11 @@ namespace AuthenticationService.Application.UseCases;
 public class RegisterUserUseCase
 {
     private readonly IUserRepository _userRepository;
-
-    public RegisterUserUseCase(IUserRepository userRepository)
+    private readonly PasswordEncryptionHelper _passwordEncryptionHelper;
+    public RegisterUserUseCase(IUserRepository userRepository, PasswordEncryptionHelper passwordEncryptionHelper)
     {
         _userRepository = userRepository;
+        _passwordEncryptionHelper = passwordEncryptionHelper;
     }
 
     public async Task<RegisterUserResponse> ExecuteAsync(RegisterUserRequest request)
@@ -39,13 +41,11 @@ public class RegisterUserUseCase
             return new RegisterUserResponse{Message = "User already exists"};
         }
         
-        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.Password);
-        
         var user = new User
         {
             Id = Guid.NewGuid(),
             Email = request.Email,
-            PasswordHash = hashedPassword,
+            PasswordHash = _passwordEncryptionHelper.HashPassword(request.Password),
             Role = request.Role,
             Fname = request.Fname,
             Lname = request.Lname

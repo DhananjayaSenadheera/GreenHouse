@@ -5,7 +5,7 @@ namespace AuthenticationService.Domain.Interfaces;
 public interface IUserRepository
 {
     Task<User?> GetUserByEmailAsync(string email);
-    Task AddUserAsync(User user);
+    Task<User> AddUserAsync(User user);
     Task<User?> GetUserByIdAsync(Guid userId);
     Task UpdateUserAsync(User user);
     Task DeleteUserAsync(User user);

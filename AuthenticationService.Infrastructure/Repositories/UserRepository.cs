@@ -20,10 +20,11 @@ public class UserRepository: IUserRepository
         return await _dbContext.Set<User>().FirstOrDefaultAsync(u => u.Email == email);
     }
 
-    public async Task AddUserAsync(User user)
+    public async Task<User> AddUserAsync(User user)
     {
-        await _dbContext.Set<User>().AddAsync(user);
+        var result = await _dbContext.AddAsync(user);
         await _dbContext.SaveChangesAsync();
+        return result.Entity; ;
     }
 
     public async Task<User?> GetUserByIdAsync(Guid userId)
