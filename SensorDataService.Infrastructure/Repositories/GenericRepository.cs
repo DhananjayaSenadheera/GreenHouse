@@ -6,17 +6,16 @@ namespace SensorDataService.Infrastructure.Repositories;
 
 public class GenericRepository<T> :IGenericRepository<T> where T : class
 {
-    private readonly SensorDataServiceDbContext _context;
-    public GenericRepository(SensorDataServiceDbContext context)
+    private readonly DbSet<T> _dbSet;
+    public GenericRepository(SensorDataServiceDbContext context, DbSet<T> dbSet)
     {
-        _context = context;
+        _dbSet = dbSet;
     }
     public async Task<Guid> CreateAsync(T entity)
     {
         try
         {
-            await  _context.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await  _dbSet.AddAsync(entity);
             var result = typeof(T).GetProperty("Id");
             return (Guid)result?.GetValue(entity);
         }
@@ -29,25 +28,23 @@ public class GenericRepository<T> :IGenericRepository<T> where T : class
 
     public Guid Update(T entity)
     {
-        _context.Update(entity);
-        _context.SaveChanges();
+        _dbSet.Update(entity);
         var result = typeof(T).GetProperty("Id");
         return (Guid)result?.GetValue(entity);
     }
 
     public async Task DeleteAsync(T entity)
     {
-        _context.Remove(entity);
-       await _context.SaveChangesAsync();
+        _dbSet.Remove(entity);
     }
 
     public async Task<T> GetByIdAsync(Guid id)
     {
-       return await  _context.Set<T>().FindAsync(id);
+       return await _dbSet.FindAsync(id);
     }
 
     public async Task<IReadOnlyList<T>> GetAllAsync()
     {
-        return  await _context.Set<T>().ToListAsync();
+        return  await _dbSet.ToListAsync();
     }
 }

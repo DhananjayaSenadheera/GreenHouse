@@ -13,6 +13,7 @@ public static class InfDependencyInjection
     {
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IGreenHouseRepository, GreenHouseRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWorkRepository>();
         services.AddDbContext<SensorDataServiceDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         return services;

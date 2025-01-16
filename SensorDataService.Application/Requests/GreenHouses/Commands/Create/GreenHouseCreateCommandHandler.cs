@@ -10,11 +10,13 @@ public class GreenHouseCreateCommandHandler : IRequestHandler<GreenHouseCreateCo
 {
     private readonly IGreenHouseRepository _repository;
     private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public GreenHouseCreateCommandHandler(IGreenHouseRepository repository, IMapper mapper)
+    public GreenHouseCreateCommandHandler(IGreenHouseRepository repository, IMapper mapper, IUnitOfWork unitOfWork)
     {
         _repository = repository;
         _mapper = mapper;
+        _unitOfWork = unitOfWork;
     }
     public async Task<Result<bool>> Handle(GreenHouseCreateCommand request, CancellationToken cancellationToken)
     {
@@ -22,6 +24,7 @@ public class GreenHouseCreateCommandHandler : IRequestHandler<GreenHouseCreateCo
         {
             var result =  _mapper.Map<Greenhouse>(request.CreateDto);
             await _repository.Add(result);
+            await _unitOfWork.CommitAsync();
             return Result<bool>.Success(true);
         }
         catch (Exception ex)
