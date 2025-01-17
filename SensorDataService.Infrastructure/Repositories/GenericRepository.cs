@@ -37,9 +37,17 @@ public class GenericRepository<T> :IGenericRepository<T> where T : class
         }
     }
 
-    public async Task DeleteAsync(T entity)
-    { 
-        _dbSet.Remove(entity);
+    public void DeleteAsync(T entity)
+    {
+        try
+        {
+            _dbSet.Remove(entity);
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected error occurred.{e.Message}");
+        }
+         
     }
 
     public async Task<T> GetByIdAsync(Guid id)

@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Requests\GreenHouses\Commands\Delete\" />
       <Folder Include="Requests\GreenHouses\Quaries\GetAll\" />
       <Folder Include="Requests\GreenHouses\Quaries\Get\" />
     </ItemGroup>

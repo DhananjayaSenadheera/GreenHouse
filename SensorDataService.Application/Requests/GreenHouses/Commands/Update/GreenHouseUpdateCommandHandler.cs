@@ -32,7 +32,6 @@ public class GreenHouseUpdateCommandHandler : IRequestHandler<GreenHouseUpdateCo
             await _greenHouseRepository.Update(result);
             await _unitOfWork.CommitAsync();
             return Result<bool>.Success(true);
-
         }
         catch (Exception e)
         {

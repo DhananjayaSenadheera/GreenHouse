@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SensorDataService.Application.Requests.GreenHouses.Commands.Create;
+using SensorDataService.Application.Requests.GreenHouses.Commands.Delete;
 using SensorDataService.Application.Requests.GreenHouses.Commands.Update;
 
 namespace SensorDataService.API.Controllers;
@@ -29,6 +30,17 @@ public class GreenHouseController(IMediator mediator) :ControllerBase
             return StatusCode(StatusCodes.Status500InternalServerError, new { message = result.Error });
         }
         return Ok(new { message = "Green House Updated Successfully" });
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete([FromBody] GreenHouseDeleteCommand command)
+    {
+        var result = await mediator.Send(command);
+        if (!result.IsSuccess)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, new { message = result.Error });
+        }
+        return Ok(new { message = "Green House Deleted Successfully" });
     }
   
 }

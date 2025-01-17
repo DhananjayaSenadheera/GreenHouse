@@ -15,6 +15,7 @@ public static class ApplicationDependencyInjection
         services.AddTransient(typeof(IPipelineBehavior<,>),typeof(ValidationBehavior<,>));
         services.AddValidatorsFromAssemblyContaining<GreenHouseCreateCommandValidator>(); 
         services.AddValidatorsFromAssemblyContaining<GreenHouseUpdateCommandValidator>(); 
+        services.AddValidatorsFromAssemblyContaining<GreenHouseDeleteCommandValidator>(); 
         services.AddAutoMapper(typeof(ProfileMapper));
         return services;
     }
