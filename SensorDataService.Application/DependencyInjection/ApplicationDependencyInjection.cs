@@ -14,6 +14,7 @@ public static class ApplicationDependencyInjection
         services.AddMediatR(cgf => cgf.RegisterServicesFromAssembly(typeof(ApplicationDependencyInjection).Assembly));
         services.AddTransient(typeof(IPipelineBehavior<,>),typeof(ValidationBehavior<,>));
         services.AddValidatorsFromAssemblyContaining<GreenHouseCreateCommandValidator>(); 
+        services.AddValidatorsFromAssemblyContaining<GreenHouseUpdateCommandValidator>(); 
         services.AddAutoMapper(typeof(ProfileMapper));
         return services;
     }

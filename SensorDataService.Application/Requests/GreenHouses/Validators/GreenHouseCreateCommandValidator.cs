@@ -7,17 +7,18 @@ public class GreenHouseCreateCommandValidator : AbstractValidator<GreenHouseCrea
 {
     public GreenHouseCreateCommandValidator()
     {
-        RuleFor(x => x.Name)
+        RuleFor(x => x.CreateDto.Name)
             .NotEmpty().WithMessage("Name is required")
             .MaximumLength(50).WithMessage("Name must not exceed 50 characters");
 
-        RuleFor(x => x.Description)
+        /*RuleFor(x => x.Description)
             .NotEmpty().WithMessage("Description is required")
-            .MaximumLength(50).WithMessage("Description must not exceed 50 characters");
+            .MaximumLength(50).WithMessage("Description must not exceed 50 characters");*/
 
-        RuleFor(x => x.Location)
+        /*RuleFor(x => x.Location)
             .NotEmpty().WithMessage("Location is required")
             .MaximumLength(50).WithMessage("Location must not exceed 50 characters");
+            */
 
     }
 }

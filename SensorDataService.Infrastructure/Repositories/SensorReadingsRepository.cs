@@ -12,13 +12,12 @@ public class SensorReadingsRepository : ISensorReadingsRepository
         _repository = repository;
     }
     
-    public async Task<Guid> Add(SensorReading sensorReading)
+    public async Task Add(SensorReading sensorReading)
     {
-        var result = await _repository.CreateAsync(sensorReading);
-        return result;
+        await _repository.CreateAsync(sensorReading);
     }
 
-    public Guid Update(SensorReading sensorReading)
+    public Task<bool> Update(SensorReading sensorReading)
     {
         return _repository.Update(sensorReading);
     }

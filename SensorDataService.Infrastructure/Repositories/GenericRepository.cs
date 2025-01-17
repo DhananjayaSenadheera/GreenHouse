@@ -7,17 +7,15 @@ namespace SensorDataService.Infrastructure.Repositories;
 public class GenericRepository<T> :IGenericRepository<T> where T : class
 {
     private readonly DbSet<T> _dbSet;
-    public GenericRepository(SensorDataServiceDbContext context, DbSet<T> dbSet)
+    public GenericRepository(SensorDataServiceDbContext dbContext)
     {
-        _dbSet = dbSet;
+        _dbSet = dbContext.Set<T>();
     }
-    public async Task<Guid> CreateAsync(T entity)
+    public async Task CreateAsync(T entity)
     {
         try
         {
             await  _dbSet.AddAsync(entity);
-            var result = typeof(T).GetProperty("Id");
-            return (Guid)result?.GetValue(entity);
         }
         catch (Exception ex)
         {
@@ -26,15 +24,21 @@ public class GenericRepository<T> :IGenericRepository<T> where T : class
          
     }
 
-    public Guid Update(T entity)
+    public Task<bool> Update(T entity)
     {
-        _dbSet.Update(entity);
-        var result = typeof(T).GetProperty("Id");
-        return (Guid)result?.GetValue(entity);
+        try
+        {
+            _dbSet.Update(entity);
+             return Task.FromResult(true);
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected error occurred.{e.Message}");
+        }
     }
 
     public async Task DeleteAsync(T entity)
-    {
+    { 
         _dbSet.Remove(entity);
     }
 

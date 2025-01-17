@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SensorDataService.Domain.Interfaces;
 using SensorDataService.Infrastructure.Configurations;
+using SensorDataService.Infrastructure.DatabaseServices;
 using SensorDataService.Infrastructure.Repositories;
 
 namespace SensorDataService.Infrastructure.DependencyInjection;
@@ -14,8 +15,7 @@ public static class InfDependencyInjection
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IGreenHouseRepository, GreenHouseRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWorkRepository>();
-        services.AddDbContext<SensorDataServiceDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        services.DatabaseService(configuration);
         return services;
     }
 }

@@ -12,13 +12,13 @@ public class SensorRepository :ISensorsRepository
         _repository = repository;
     }
 
-    public async Task<Guid> Add(Sensor sensor)
+    public async Task Add(Sensor sensor)
     {
-        var result = await _repository.CreateAsync(sensor);
-        return result;
+       await _repository.CreateAsync(sensor);
+       
     }
 
-    public Guid Update(Sensor sensor)
+    public Task<bool> Update(Sensor sensor)
     {
       var result =  _repository.Update(sensor);
       return result;

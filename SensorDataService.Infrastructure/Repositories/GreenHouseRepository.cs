@@ -11,16 +11,15 @@ public class GreenHouseRepository:IGreenHouseRepository
     {
         _repository = repository;
     }
-    public async Task<Guid> Add(Greenhouse greenHouse)
+    public async Task Add(Greenhouse greenHouse)
     {
-        var id = await _repository.CreateAsync(greenHouse);
-        return id;
+       await _repository.CreateAsync(greenHouse);
     }
 
-    public Guid Update(Greenhouse greenHouse)
+    public Task<bool> Update(Greenhouse greenHouse)
     {
-        var id = _repository.Update(greenHouse);
-        return id;
+        var result = _repository.Update(greenHouse);
+        return result;
     }
 
     public Task<Greenhouse> Delete(Greenhouse greenHouse)

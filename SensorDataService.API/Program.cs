@@ -11,9 +11,6 @@ builder.Services.AddControllers();
 builder.Services.AddInfrastructureLayer(builder.Configuration);
 builder.Services.AddApplicationLayers();
 
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

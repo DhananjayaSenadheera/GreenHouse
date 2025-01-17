@@ -4,8 +4,8 @@ namespace SensorDataService.Domain.Interfaces;
 
 public interface IGreenHouseRepository
 {
-    Task<Guid> Add(Greenhouse greenHouse);
-    Guid Update(Greenhouse greenHouse);
+    Task Add(Greenhouse greenHouse);
+    Task<bool> Update(Greenhouse greenHouse);
     Task <Greenhouse> Delete(Greenhouse greenHouse);
     Task <IEnumerable<Greenhouse>> GetAll();
     Task <Greenhouse> GetOneById(Guid guid);
