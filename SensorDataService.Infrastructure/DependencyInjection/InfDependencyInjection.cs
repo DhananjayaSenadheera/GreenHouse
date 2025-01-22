@@ -17,6 +17,7 @@ public static class InfDependencyInjection
         services.AddScoped<ISensorsRepository, SensorRepository>();
         services.AddScoped<ISensorReadingsRepository, SensorReadingsRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWorkRepository>();
+        services.AddScoped<IDefaultSettingRepository, DefaultSettingRepository>();
         services.DatabaseService(configuration);
         return services;
     }

@@ -5,6 +5,7 @@ using SensorDataService.Application.Behaviors;
 using SensorDataService.Application.Mappings;
 using SensorDataService.Application.Requests.GreenHouses.Validators;
 using SensorDataService.Application.Requests.Sonsors.Validators;
+using SensorDataService.Application.Settings;
 
 namespace SensorDataService.Application.DependencyInjection;
 
@@ -22,6 +23,7 @@ public static class ApplicationDependencyInjection
         services.AddValidatorsFromAssemblyContaining<SensorCreateCommandValidator>();
         services.AddValidatorsFromAssemblyContaining<SensorUpdateCommandValidator>();
         services.AddValidatorsFromAssemblyContaining<SensorGetOneCommandValidator>();
+        services.AddTransient<SensorCodeSettings>();
         services.AddAutoMapper(typeof(ProfileMapper));
         return services;
     }

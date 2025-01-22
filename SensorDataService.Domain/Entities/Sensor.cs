@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using SensorDataService.Domain.Enum;
 
 namespace SensorDataService.Domain.Entities;
 
@@ -6,6 +7,8 @@ public class Sensor
 {
     [Key]
     public Guid Sensor_Id { get; set; } = Guid.NewGuid();
+    public string Sensor_Code { get; set; }
+    public Status Status { get; set; }
     public string Name { get; set; }
     public string Type { get; set; }
     public string Description { get; set; }

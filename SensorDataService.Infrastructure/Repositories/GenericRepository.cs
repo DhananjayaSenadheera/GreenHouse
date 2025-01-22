@@ -119,4 +119,17 @@ public class GenericRepository<T> :IGenericRepository<T> where T : class
             throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
         }
     }
+
+    public async Task<T> GetoneAsync()
+    {
+        try
+        {
+            var result = await _dbSet.FirstOrDefaultAsync();
+            return result;
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
+        }
+    }
 }

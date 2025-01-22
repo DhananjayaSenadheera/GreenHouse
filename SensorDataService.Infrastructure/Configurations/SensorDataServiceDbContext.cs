@@ -9,4 +9,17 @@ public class SensorDataServiceDbContext : DbContext
    public DbSet<Sensor> Sensors { get; set; }
    public DbSet<Greenhouse> Greenhouses { get; set; }
    public DbSet<SensorReading> SensorReadings { get; set; }
+   public DbSet<DefaultSetting> DefaultSettings { get; set; }
+
+
+   protected override void OnModelCreating(ModelBuilder modelBuilder)
+   {
+      modelBuilder.Entity<DefaultSetting>().HasData(new DefaultSetting
+      {
+         Id = 1,
+         SensorCode = 1,
+         SensorPadding = 8,
+         SensorPrefix = "SEN"
+      });
+   }
 }
