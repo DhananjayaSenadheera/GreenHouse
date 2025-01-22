@@ -7,7 +7,7 @@ public class GreenHouseUpdateCommandValidator : AbstractValidator<GreenHouseUpda
 {
     public GreenHouseUpdateCommandValidator()
     {
-        RuleFor(x => x.UpdateDto.GreenHouse_Id)
+        RuleFor(x => x.GreenHouseUpdateDto.GreenHouse_Id)
             .NotEmpty().WithMessage("{PropertyName} is required.");
         
     }

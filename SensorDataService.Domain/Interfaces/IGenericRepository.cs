@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 namespace SensorDataService.Domain.Interfaces;
 
 public interface IGenericRepository<T> where T : class
@@ -6,5 +8,8 @@ public interface IGenericRepository<T> where T : class
     Task<bool> Update(T entity);
     void DeleteAsync(T entity);
     Task<T> GetByIdAsync(Guid id);
-    Task<IReadOnlyList<T>> GetAllAsync();
+    Task<T?> GetOneAsyncInclude(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<IEnumerable<T>> GetAllAsyncInclude(params Expression<Func<T, object>>[] includes);
+    
 }

@@ -11,5 +11,5 @@ public class Greenhouse
     public string Description { get; set; }
     public DateTime CreatedAt { get; set; } 
     public DateTime UpdatedAt { get; set; } 
-    public ICollection<Sensor> Sensors { get; set; }
+   // public ICollection<Sensor> Sensors { get; set; }
 }

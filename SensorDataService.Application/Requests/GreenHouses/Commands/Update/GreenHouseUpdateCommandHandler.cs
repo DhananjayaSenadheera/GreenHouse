@@ -23,12 +23,12 @@ public class GreenHouseUpdateCommandHandler : IRequestHandler<GreenHouseUpdateCo
     {
         try
         {
-            var existingGreenHouse =await _greenHouseRepository.GetOneById(request.UpdateDto.GreenHouse_Id);
+            var existingGreenHouse =await _greenHouseRepository.GetOneById(request.GreenHouseUpdateDto.GreenHouse_Id);
             if (existingGreenHouse == null)
             {
-                return Result<bool>.Failure($"Green house with id: {request.UpdateDto.Name} was not found");
+                return Result<bool>.Failure($"Green house with id: {request.GreenHouseUpdateDto.Name} was not found");
             }
-            var result =  _mapper.Map(request.UpdateDto, existingGreenHouse);
+            var result =  _mapper.Map(request.GreenHouseUpdateDto, existingGreenHouse);
             await _greenHouseRepository.Update(result);
             await _unitOfWork.CommitAsync();
             return Result<bool>.Success(true);

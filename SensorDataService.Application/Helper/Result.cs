@@ -1,3 +1,5 @@
+using SensorDataService.Application.Requests.Sonsors.DTOs;
+
 namespace SensorDataService.Application.Helper;
 
 public class Result<T>

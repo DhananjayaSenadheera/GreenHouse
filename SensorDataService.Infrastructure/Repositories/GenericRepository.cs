@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using SensorDataService.Domain.Interfaces;
 using SensorDataService.Infrastructure.Configurations;
@@ -19,7 +20,7 @@ public class GenericRepository<T> :IGenericRepository<T> where T : class
         }
         catch (Exception ex)
         {
-            throw new ApplicationException($"An unexpected error occurred.{ex.Message}");
+            throw new ApplicationException($"An unexpected server error occurred.{ex.Message}");
         }
          
     }
@@ -33,7 +34,7 @@ public class GenericRepository<T> :IGenericRepository<T> where T : class
         }
         catch (Exception e)
         {
-            throw new ApplicationException($"An unexpected error occurred.{e.Message}");
+            throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
         }
     }
 
@@ -45,18 +46,77 @@ public class GenericRepository<T> :IGenericRepository<T> where T : class
         }
         catch (Exception e)
         {
-            throw new ApplicationException($"An unexpected error occurred.{e.Message}");
+            throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
         }
          
     }
 
     public async Task<T> GetByIdAsync(Guid id)
     {
-       return await _dbSet.FindAsync(id);
+        try
+        {
+            return await _dbSet.FindAsync(id);
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
+        }
+      
+    }
+    
+    public async Task<T?> GetOneAsyncInclude(Expression<Func<T, bool>> predicate,params Expression<Func<T, object>>[] includes)
+    {
+        try
+        {
+            IQueryable<T> query = _dbSet;
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            var res = await query.FirstOrDefaultAsync(predicate);
+            return res;
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
+        }
+      
+    }
+    public async Task<IEnumerable<T>> GetAllAsync()
+    {
+        try
+        {
+            var result = await _dbSet.ToListAsync();
+            return  result;
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
+        }
     }
 
-    public async Task<IReadOnlyList<T>> GetAllAsync()
+    public async Task<IEnumerable<T>> GetAllAsyncInclude(params Expression<Func<T, object>>[] includes)
     {
-        return  await _dbSet.ToListAsync();
+        try
+        {
+            IQueryable<T> query = _dbSet;
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            
+            var result = await query.ToListAsync();
+            return result;
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
+        }
     }
 }

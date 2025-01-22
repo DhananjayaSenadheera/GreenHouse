@@ -6,7 +6,6 @@ public class Sensor
 {
     [Key]
     public Guid Sensor_Id { get; set; } = Guid.NewGuid();
-    public Guid GreenHouse_Id { get; set; }
     public string Name { get; set; }
     public string Type { get; set; }
     public string Description { get; set; }

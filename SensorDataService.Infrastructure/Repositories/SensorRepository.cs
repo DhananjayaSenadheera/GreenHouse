@@ -31,13 +31,20 @@ public class SensorRepository :ISensorsRepository
 
     public async Task<IEnumerable<Sensor>> GetAll()
     {
-        var result = await _repository.GetAllAsync();
+       // var result = await _repository.GetAllAsync();
+        var result = await _repository.GetAllAsyncInclude(x => x.Greenhouse);
         return result;
     }
 
-    public async Task<Sensor> GetOneById(Guid guid)
+    public async Task<Sensor?> GetOneById(Guid guid)
     {
         var result = await _repository.GetByIdAsync(guid);
+        return result;
+    }
+
+    public async Task<Sensor?> GetOneByIdInclude(Guid guid)
+    {
+        var result = await _repository.GetOneAsyncInclude( y => y.Sensor_Id == guid, x=>x.Greenhouse);
         return result;
     }
 }

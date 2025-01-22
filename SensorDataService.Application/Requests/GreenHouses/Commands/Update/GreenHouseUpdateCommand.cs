@@ -6,5 +6,5 @@ namespace SensorDataService.Application.Requests.GreenHouses.Commands.Update;
 
 public class GreenHouseUpdateCommand : IRequest<Result<bool>>
 {
-    public UpdateDto UpdateDto { get; set; }
+    public GreenHouseUpdateDto GreenHouseUpdateDto { get; set; }
 }

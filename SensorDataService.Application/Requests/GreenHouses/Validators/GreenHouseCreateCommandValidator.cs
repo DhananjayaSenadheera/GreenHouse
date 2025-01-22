@@ -7,7 +7,7 @@ public class GreenHouseCreateCommandValidator : AbstractValidator<GreenHouseCrea
 {
     public GreenHouseCreateCommandValidator()
     {
-        RuleFor(x => x.CreateDto.Name)
+        RuleFor(x => x.GreenHouseCreateDto.Name)
             .NotEmpty().WithMessage("Name is required")
             .MaximumLength(50).WithMessage("Name must not exceed 50 characters");
 

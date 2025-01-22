@@ -2,7 +2,7 @@ using SensorDataService.Domain.Entities;
 
 namespace SensorDataService.Application.Requests.GreenHouses.Dtos;
 
-public class GetDto
+public class GreenHouseGetDto
 {
     public Guid GreenHouse_Id { get; set; }
     public string Name { get; set; }

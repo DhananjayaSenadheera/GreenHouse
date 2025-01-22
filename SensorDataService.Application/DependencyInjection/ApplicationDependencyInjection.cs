@@ -2,8 +2,9 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using SensorDataService.Application.Behaviors;
-using SensorDataService.Application.Requests.GreenHouses.Mappings;
+using SensorDataService.Application.Mappings;
 using SensorDataService.Application.Requests.GreenHouses.Validators;
+using SensorDataService.Application.Requests.Sonsors.Validators;
 
 namespace SensorDataService.Application.DependencyInjection;
 
@@ -16,6 +17,11 @@ public static class ApplicationDependencyInjection
         services.AddValidatorsFromAssemblyContaining<GreenHouseCreateCommandValidator>(); 
         services.AddValidatorsFromAssemblyContaining<GreenHouseUpdateCommandValidator>(); 
         services.AddValidatorsFromAssemblyContaining<GreenHouseDeleteCommandValidator>(); 
+        services.AddValidatorsFromAssemblyContaining<GreenHouseGetOneCommandValidator>(); 
+        services.AddValidatorsFromAssemblyContaining<GreenHouseDeleteCommandValidator>();
+        services.AddValidatorsFromAssemblyContaining<SensorCreateCommandValidator>();
+        services.AddValidatorsFromAssemblyContaining<SensorUpdateCommandValidator>();
+        services.AddValidatorsFromAssemblyContaining<SensorGetOneCommandValidator>();
         services.AddAutoMapper(typeof(ProfileMapper));
         return services;
     }

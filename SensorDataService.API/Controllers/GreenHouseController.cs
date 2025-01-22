@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using SensorDataService.Application.Requests.GreenHouses.Commands.Create;
 using SensorDataService.Application.Requests.GreenHouses.Commands.Delete;
 using SensorDataService.Application.Requests.GreenHouses.Commands.Update;
+using SensorDataService.Application.Requests.GreenHouses.Quaries.Get;
+using SensorDataService.Application.Requests.GreenHouses.Quaries.GetAll;
 
 namespace SensorDataService.API.Controllers;
 
@@ -42,5 +44,24 @@ public class GreenHouseController(IMediator mediator) :ControllerBase
         }
         return Ok(new { message = "Green House Deleted Successfully" });
     }
-  
+
+    [HttpGet("{Id}")]
+    public async Task<IActionResult> Get(Guid Id)
+    {
+        var result = await mediator.Send(new GreenHouseGetOneCommand(Id));
+        if (!result.IsSuccess)
+        {
+            return NotFound(new { message = "Green House Not Found" });
+        }
+        return Ok(result.Data);
+    }
+
+    [HttpGet("GetAll")]
+    public async Task<IActionResult> GetAll()
+    {
+        var reult = await mediator.Send(new GreeHouseGetAllCommand());
+        if (!reult.IsSuccess)
+            return NotFound(new { message = "Green House List Not Found" });
+        return Ok(reult.Data);
+    }
 }

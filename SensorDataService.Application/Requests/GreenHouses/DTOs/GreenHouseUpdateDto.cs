@@ -1,6 +1,6 @@
 namespace SensorDataService.Application.Requests.GreenHouses.Dtos;
 
-public class UpdateDto
+public class GreenHouseUpdateDto
 {
     public Guid GreenHouse_Id { get; set; }
     public string Name { get; set; }

@@ -23,7 +23,7 @@ public class GreenHouseCreateCommandHandler : IRequestHandler<GreenHouseCreateCo
     {
         try
         {
-            var result =  _mapper.Map<Greenhouse>(request.CreateDto);
+            var result =  _mapper.Map<Greenhouse>(request.GreenHouseCreateDto);
             await _repository.Add(result);
             await _unitOfWork.CommitAsync();
             return Result<bool>.Success(true);

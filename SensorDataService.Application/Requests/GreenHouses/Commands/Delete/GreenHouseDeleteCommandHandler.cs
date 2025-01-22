@@ -9,13 +9,11 @@ namespace SensorDataService.Application.Requests.GreenHouses.Commands.Delete;
 public class GreenHouseDeleteCommandHandler : IRequestHandler<GreenHouseDeleteCommand , Result<bool>>
 {
     private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
     private readonly IGreenHouseRepository _greenHouseRepository;
 
-    public GreenHouseDeleteCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IGreenHouseRepository greenHouseRepository)
+    public GreenHouseDeleteCommandHandler(IUnitOfWork unitOfWork, IGreenHouseRepository greenHouseRepository)
     {
         _unitOfWork = unitOfWork;
-        _mapper = mapper;
         _greenHouseRepository = greenHouseRepository;
     }
     

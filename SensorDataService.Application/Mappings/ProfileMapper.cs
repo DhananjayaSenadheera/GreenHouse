@@ -1,20 +1,35 @@
 using AutoMapper;
-using SensorDataService.Domain.Entities;
 using SensorDataService.Application.Requests.GreenHouses.Dtos;
+using SensorDataService.Application.Requests.Sonsors.DTOs;
+using SensorDataService.Domain.Entities;
 
-namespace SensorDataService.Application.Requests.GreenHouses.Mappings;
+namespace SensorDataService.Application.Mappings;
 
 public class ProfileMapper : Profile
 {
     public ProfileMapper()
     {
-        CreateMap<CreateDto, Greenhouse>()
+        
+        //***Green House***
+        CreateMap<GreenHouseCreateDto, Greenhouse>()
              .ForMember(desc => desc.GreenHouse_Id, opt => opt.MapFrom(_ => Guid.NewGuid()))
              .ForMember(desc =>desc.CreatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow))
              .ForMember(desc => desc.UpdatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow));
-        CreateMap<UpdateDto, Greenhouse>()
+        CreateMap<GreenHouseUpdateDto, Greenhouse>()
             .ForMember(desc => desc.UpdatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow))
             .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null && !(srcMember is string str &&  string.IsNullOrWhiteSpace(str)) ));
-        CreateMap<Greenhouse, GetDto>();
+        CreateMap<Greenhouse, GreenHouseGetDto>();
+        
+        //***Sensor***
+        CreateMap<SensorCreateDto ,Sensor>()
+            .ForMember(desc => desc.UpdatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow))
+            .ForMember(desc => desc.CreatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow))
+            .ForMember(desc => desc.Sensor_Id, opt => opt.MapFrom(_ => Guid.NewGuid()));
+       CreateMap<SensorUpdateDto , Sensor>()
+           .ForMember(desc => desc.UpdatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow))
+           .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null && !(srcMember is string str &&  string.IsNullOrWhiteSpace(str)) ));
+       CreateMap<Sensor, SensorGetDto>();                                                                                                                                                                 
+       // .ForMember(dest => dest.Greenhouse, opt => opt.Ignore());  // Avoid mapping the entire Greenhouse object
+
     }
 }

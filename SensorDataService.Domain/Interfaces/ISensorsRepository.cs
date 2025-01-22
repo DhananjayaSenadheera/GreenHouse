@@ -8,5 +8,6 @@ public interface ISensorsRepository
     Task<bool> Update(Sensor sensor);
     void Delete(Sensor sensor);
     Task <IEnumerable<Sensor>> GetAll();
-    Task <Sensor> GetOneById(Guid guid);
+    Task<Sensor?> GetOneById(Guid guid);
+    Task<Sensor?> GetOneByIdInclude(Guid sensor_Id);
 }

@@ -6,5 +6,5 @@ namespace SensorDataService.Application.Requests.GreenHouses.Commands.Create;
 
 public class GreenHouseCreateCommand : IRequest<Result<bool>>
 {
-    public CreateDto CreateDto { get; set; }
+    public GreenHouseCreateDto GreenHouseCreateDto { get; set; }
 }
