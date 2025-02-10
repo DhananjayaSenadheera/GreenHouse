@@ -19,7 +19,10 @@ public class SensorDataServiceDbContext : DbContext
          Id = 1,
          SensorCode = 1,
          SensorPadding = 8,
-         SensorPrefix = "SEN"
+         SensorPrefix = "SEN",
+         GreenHouseCode = 1,
+         GreenHousePadding = 8,
+         GreenHousePrefix = "GREEN"
       });
    }
 }

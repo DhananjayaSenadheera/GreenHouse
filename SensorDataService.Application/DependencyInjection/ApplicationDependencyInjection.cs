@@ -24,6 +24,7 @@ public static class ApplicationDependencyInjection
         services.AddValidatorsFromAssemblyContaining<SensorUpdateCommandValidator>();
         services.AddValidatorsFromAssemblyContaining<SensorGetOneCommandValidator>();
         services.AddTransient<SensorCodeSettings>();
+        services.AddTransient<GreenHouseCodeSettings>();
         services.AddAutoMapper(typeof(ProfileMapper));
         return services;
     }

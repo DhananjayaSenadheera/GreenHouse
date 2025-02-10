@@ -5,6 +5,7 @@ namespace SensorDataService.Application.Requests.GreenHouses.Dtos;
 public class GreenHouseGetDto
 {
     public Guid GreenHouse_Id { get; set; }
+    public string GreenHouse_Code { get; set; }
     public string Name { get; set; }
     public string Location { get; set; }
     public string Description { get; set; }
