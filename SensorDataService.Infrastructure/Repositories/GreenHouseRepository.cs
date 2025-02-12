@@ -40,4 +40,16 @@ public class GreenHouseRepository:IGreenHouseRepository
         var result = await _repository.GetByIdAsync(guid);
         return result;
     }
+
+    public async Task<Greenhouse> GetOneByCode(string GreenHouseCode)
+    {
+        var result = await _repository.GetOneByCodeAsync(x => x.GreenHouse_Code == GreenHouseCode);
+        return result;
+    }
+    
+    public async Task<IEnumerable<Greenhouse>> GetManyByCodesAsync(List<string> greenhouseCodes)
+    {
+        var result = await _repository.GetManyByCodesAsync(x => greenhouseCodes.Contains(x.GreenHouse_Code));
+        return result;
+    }
 }

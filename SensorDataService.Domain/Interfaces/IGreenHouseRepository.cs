@@ -9,4 +9,6 @@ public interface IGreenHouseRepository
     Task <Greenhouse> Delete(Greenhouse greenHouse);
     Task <IEnumerable<Greenhouse>> GetAll();
     Task <Greenhouse> GetOneById(Guid guid);
+    Task <Greenhouse> GetOneByCode(string GreenHouseCode);
+    Task<IEnumerable<Greenhouse>> GetManyByCodesAsync(List<string> greenhouseCodes);
 }

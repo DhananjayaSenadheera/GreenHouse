@@ -12,5 +12,6 @@ public interface IGenericRepository<T> where T : class
     Task<IEnumerable<T>> GetAllAsync();
     Task<IEnumerable<T>> GetAllAsyncInclude(params Expression<Func<T, object>>[] includes);
     Task<T> GetoneAsync();
-    
+    Task<T> GetOneByCodeAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+    Task<IEnumerable<T>> GetManyByCodesAsync(Expression<Func<T, bool>> predicate);
 }

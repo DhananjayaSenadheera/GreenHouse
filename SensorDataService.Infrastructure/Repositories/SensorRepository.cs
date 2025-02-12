@@ -47,4 +47,16 @@ public class SensorRepository :ISensorsRepository
         var result = await _repository.GetOneAsyncInclude( y => y.Sensor_Id == guid, x=>x.Greenhouse);
         return result;
     }
+
+    public async Task<List<Sensor>> GetSensordByGreenhouseId(Guid greenhouse_Id)
+    {
+        var result = await _repository.GetAllAsyncInclude(x => x.Greenhouse.GreenHouse_Id == greenhouse_Id); 
+        return (List<Sensor>)result;
+    }
+
+    public async Task<IEnumerable<Sensor>> GetManyByCodesAsync(List<string>SensorCodes)
+    {
+        var result = await _repository.GetManyByCodesAsync(x => SensorCodes.Contains(x.Sensor_Code));
+        return result;
+    }
 }

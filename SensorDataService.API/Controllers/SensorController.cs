@@ -1,10 +1,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SensorDataService.Application.Requests.Sonsors.Commands.Create;
-using SensorDataService.Application.Requests.Sonsors.Commands.Delete;
-using SensorDataService.Application.Requests.Sonsors.Commands.Update;
-using SensorDataService.Application.Requests.Sonsors.Quaries.GetAll;
-using SensorDataService.Application.Requests.Sonsors.Quaries.GetOne;
+using SensorDataService.Application.Requests.Sensors.Commands.Create;
+using SensorDataService.Application.Requests.Sensors.Commands.Delete;
+using SensorDataService.Application.Requests.Sensors.Commands.Update;
+using SensorDataService.Application.Requests.Sensors.Quaries.GetAll;
+using SensorDataService.Application.Requests.Sensors.Quaries.GetOne;
 
 namespace SensorDataService.API.Controllers;
 
@@ -45,7 +45,7 @@ public class SensorController(IMediator mediator) : ControllerBase
     [HttpGet("{Id}")]
     public async Task<IActionResult> GetById(Guid Id)
     {
-        var result = await mediator.Send(new SensorGetOneCommand(Id));
+        var result = await mediator.Send(new SensorGetOneQuery(Id));
         if (!result.IsSuccess)
         {
             return NotFound(new { message = "Sensor Not Found" });
@@ -56,7 +56,7 @@ public class SensorController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var result = await mediator.Send(new SensorGetAllCommand());
+        var result = await mediator.Send(new SensorGetAllQuery());
         if (!result.IsSuccess)
         {
             return NotFound(new { message = "Cant load all sensors" });

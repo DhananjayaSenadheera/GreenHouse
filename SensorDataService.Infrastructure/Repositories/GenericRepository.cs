@@ -120,6 +120,41 @@ public class GenericRepository<T> :IGenericRepository<T> where T : class
         }
     }
 
+    public async Task<T> GetOneByCodeAsync(Expression<Func<T, bool>> predicate,params Expression<Func<T, object>>[] includes)
+    {
+        try
+        {
+            IQueryable<T> query = _dbSet;
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            var res = await query.FirstOrDefaultAsync(predicate);
+            return res;
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected server error occurred.{e.Message}");
+        }
+    }
+
+    public async Task<IEnumerable<T>> GetManyByCodesAsync(Expression<Func<T, bool>> predicate)
+    {
+        try
+        {
+            var result = await _dbSet.Where(predicate).ToListAsync();
+            return result;
+        }
+        catch (Exception e)
+        {
+            throw new ApplicationException($"An unexpected server error occurred: {e.Message}");
+        }
+    }
+
+
     public async Task<T> GetoneAsync()
     {
         try
