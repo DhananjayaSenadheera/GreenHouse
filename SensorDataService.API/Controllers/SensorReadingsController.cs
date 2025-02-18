@@ -14,5 +14,6 @@ public class SensorReadingsController(IMediator mediator) : ControllerBase
    {
       var result = await  mediator.Send(command);
       return result.IsSuccess ? StatusCode(StatusCodes.Status200OK, new {message = "Records Captured Successfully",result.Data}) : StatusCode(StatusCodes.Status500InternalServerError, new {message = result.Error});
+     // return Ok("Data Recived"+StatusCodes.Status200OK);
    }
 }
