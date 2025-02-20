@@ -1,7 +1,6 @@
 using AutoMapper;
 using MediatR;
 using SensorDataService.Application.Helper;
-using SensorDataService.Application.Requests.SensorReadings.Quaries;
 using SensorDataService.Application.Requests.Sensors.DTOs;
 using SensorDataService.Domain.Entities;
 using SensorDataService.Domain.Interfaces;
@@ -13,7 +12,8 @@ public class SensorReadingCreateCommandHandler(
     IGreenHouseRepository greenHouseRepository,
     ISensorReadingsRepository sensorReadingsRepository,
     IUnitOfWork unitOfWork,
-    IMapper mapper)
+    IMapper mapper,
+    IRabbitMQProducer rabbitMQProducer)
     : IRequestHandler<SensorReadingCreateCommand, Result<bool>>
 {
     public async Task<Result<bool>> Handle(SensorReadingCreateCommand request, CancellationToken cancellationToken)
@@ -65,14 +65,17 @@ public class SensorReadingCreateCommandHandler(
             Value = d.Value,
             Unit = d.Unit,
         }).ToList();
-
+        
+        var SensorDataList = new List<SensorReading>();
+        
         foreach (var reading in sensorReadings)
         {
             var result = mapper.Map<SensorReading>(reading);
-            await sensorReadingsRepository.Add(result);
+            SensorDataList.Add(result);
+           // await sensorReadingsRepository.Add(result);
         }
-
-        await unitOfWork.CommitAsync();
+        rabbitMQProducer.Publish(SensorDataList);
+        // await unitOfWork.CommitAsync();
         return Result<bool>.Success(true);
     }
 }

@@ -1,6 +1,4 @@
-using System.Collections;
-
-namespace SensorDataService.Application.Requests.SensorReadings.Quaries;
+namespace SensorDataService.Application.Requests.SensorReadings.DTos;
 
 public class SensorReadingCreateDTo
 {

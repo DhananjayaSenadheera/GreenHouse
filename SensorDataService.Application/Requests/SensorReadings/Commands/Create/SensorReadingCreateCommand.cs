@@ -1,6 +1,6 @@
 using MediatR;
 using SensorDataService.Application.Helper;
-using SensorDataService.Application.Requests.SensorReadings.Quaries;
+using SensorDataService.Application.Requests.SensorReadings.DTos;
 
 namespace SensorDataService.Application.Requests.SensorReadings.Commands.Create;
 

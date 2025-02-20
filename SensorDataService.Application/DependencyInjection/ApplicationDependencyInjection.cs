@@ -1,7 +1,10 @@
 using FluentValidation;
+using MassTransit;
+using MassTransit.MultiBus;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using SensorDataService.Application.Behaviors;
+using SensorDataService.Application.Helper;
 using SensorDataService.Application.Mappings;
 using SensorDataService.Application.Requests.GreenHouses.Validators;
 using SensorDataService.Application.Requests.Sensors.Validators;
@@ -37,6 +40,7 @@ public static class ApplicationDependencyInjection
         services.AddTransient<SensorCodeSettings>();
         services.AddTransient<GreenHouseCodeSettings>();
         services.AddAutoMapper(typeof(ProfileMapper));
+
         
         return services;
     }

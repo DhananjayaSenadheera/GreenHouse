@@ -1,6 +1,6 @@
 using AutoMapper;
 using SensorDataService.Application.Requests.GreenHouses.Dtos;
-using SensorDataService.Application.Requests.SensorReadings.Quaries;
+using SensorDataService.Application.Requests.SensorReadings.DTos;
 using SensorDataService.Application.Requests.Sensors.DTOs;
 using SensorDataService.Domain.Entities;
 
