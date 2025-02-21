@@ -1,7 +1,6 @@
 using AutoMapper;
 using MediatR;
 using SensorDataService.Application.Helper;
-using SensorDataService.Application.Requests.GreenHouses.Dtos;
 using SensorDataService.Application.Requests.GreenHouses.Validators;
 using SensorDataService.Application.Settings;
 using SensorDataService.Domain.Entities;

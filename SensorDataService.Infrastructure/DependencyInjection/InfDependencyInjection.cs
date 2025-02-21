@@ -4,9 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using SensorDataService.Domain.Interfaces;
 using SensorDataService.Infrastructure.Configurations;
 using SensorDataService.Infrastructure.DatabaseServices;
-using SensorDataService.Infrastructure.Interfaces;
 using SensorDataService.Infrastructure.Repositories;
-using SensorDataService.Infrastructure.Services;
+
 
 namespace SensorDataService.Infrastructure.DependencyInjection;
 
@@ -21,8 +20,6 @@ public static class InfDependencyInjection
         services.AddScoped<IUnitOfWork, UnitOfWorkRepository>();
         services.AddScoped<IDefaultSettingRepository, DefaultSettingRepository>();
         services.DatabaseService(configuration);
-        services.AddSingleton<IRabbitMqConnection, RabbitMqConnection>();
-        services.AddSingleton<IRabbitMQProducer, RabbitMQProducer>();
         return services;
     }
 }

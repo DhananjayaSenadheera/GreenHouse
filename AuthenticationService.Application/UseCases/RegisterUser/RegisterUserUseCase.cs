@@ -2,7 +2,7 @@ using AuthenticationService.Application.Helpers;
 using AuthenticationService.Domain.Entities;
 using AuthenticationService.Domain.Interfaces;
 
-namespace AuthenticationService.Application.UseCases;
+namespace AuthenticationService.Application.UseCases.RegisterUser;
 
 public class RegisterUserUseCase
 {

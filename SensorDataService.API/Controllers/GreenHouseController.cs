@@ -5,6 +5,7 @@ using SensorDataService.Application.Requests.GreenHouses.Commands.Delete;
 using SensorDataService.Application.Requests.GreenHouses.Commands.Update;
 using SensorDataService.Application.Requests.GreenHouses.Quaries.Get;
 using SensorDataService.Application.Requests.GreenHouses.Quaries.Get.ByCode;
+using SensorDataService.Application.Requests.GreenHouses.Quaries.Get.ById;
 using SensorDataService.Application.Requests.GreenHouses.Quaries.GetAll;
 
 namespace SensorDataService.API.Controllers;

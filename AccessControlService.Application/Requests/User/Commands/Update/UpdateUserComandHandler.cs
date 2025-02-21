@@ -1,4 +1,3 @@
-using AccessControlService.Application.Requests.User.DTos;
 using AccessControlService.Domain.Interfaces;
 using AutoMapper;
 using MediatR;

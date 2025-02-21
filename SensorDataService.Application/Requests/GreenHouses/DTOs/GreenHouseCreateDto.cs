@@ -1,4 +1,4 @@
-namespace SensorDataService.Application.Requests.GreenHouses.Dtos;
+namespace SensorDataService.Application.Requests.GreenHouses.DTOs;
 
 public class GreenHouseCreateDto
 {

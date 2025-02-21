@@ -1,10 +1,9 @@
-using Microsoft.EntityFrameworkCore.Metadata;
+using DataCapturingService.Infrastructure.Interfaces;
 using RabbitMQ.Client;
-using SensorDataService.Infrastructure.Interfaces;
 
-namespace SensorDataService.Infrastructure.Configurations;
+namespace DataCapturingService.Infrastructure.Configurations;
 
-public class RabbitMqConnection : IRabbitMqConnection ,IDisposable
+public class RabbitMqConnection :  IRabbitMqConnection ,IDisposable
 {
     private IConnection? _connection;
     private readonly ConnectionFactory _factory;

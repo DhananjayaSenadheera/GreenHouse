@@ -1,19 +1,17 @@
 using System.Text;
 using System.Text.Json;
-using Microsoft.EntityFrameworkCore;
+using DataCapturingService.Infrastructure.Interfaces;
+using DataCapturingService.Domain.Domain;
+using DataCapturingService.Domain.Interfaces;
 using RabbitMQ.Client;
-using SensorDataService.Domain.Entities;
-using SensorDataService.Domain.Interfaces;
-using SensorDataService.Infrastructure.Configurations;
-using SensorDataService.Infrastructure.Interfaces;
 
-namespace SensorDataService.Infrastructure.Services;
+namespace DataCapturingService.Infrastructure.Services;
 
-public class RabbitMQProducer : IRabbitMQProducer
+public class RabbitMqProducer : IRabbitMqProducer
 {
     private readonly IRabbitMqConnection _rabbitMqConnection;
     
-    public RabbitMQProducer(IRabbitMqConnection rabbitMqConnection)
+    public RabbitMqProducer(IRabbitMqConnection rabbitMqConnection)
     {
         _rabbitMqConnection = rabbitMqConnection;
     }

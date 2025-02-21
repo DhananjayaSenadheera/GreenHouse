@@ -1,8 +1,8 @@
 using MediatR;
 using SensorDataService.Application.Helper;
-using SensorDataService.Application.Requests.GreenHouses.Dtos;
+using SensorDataService.Application.Requests.GreenHouses.DTOs;
 
-namespace SensorDataService.Application.Requests.GreenHouses.Quaries.Get;
+namespace SensorDataService.Application.Requests.GreenHouses.Quaries.Get.ById;
 
 public class GreenHouseGetOneQuery(Guid id) : IRequest<Result<GreenHouseGetDto>>
 { 

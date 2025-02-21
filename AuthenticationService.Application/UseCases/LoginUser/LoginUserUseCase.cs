@@ -1,7 +1,7 @@
 using AuthenticationService.Application.Interfaces;
 using AuthenticationService.Domain.Interfaces;
 
-namespace AuthenticationService.Application.UseCases.Login;
+namespace AuthenticationService.Application.UseCases.LoginUser;
 
 public class LoginUserUseCase
 {

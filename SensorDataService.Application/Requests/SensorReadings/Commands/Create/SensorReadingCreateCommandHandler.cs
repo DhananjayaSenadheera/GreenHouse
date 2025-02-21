@@ -12,8 +12,7 @@ public class SensorReadingCreateCommandHandler(
     IGreenHouseRepository greenHouseRepository,
     ISensorReadingsRepository sensorReadingsRepository,
     IUnitOfWork unitOfWork,
-    IMapper mapper,
-    IRabbitMQProducer rabbitMQProducer)
+    IMapper mapper)
     : IRequestHandler<SensorReadingCreateCommand, Result<bool>>
 {
     public async Task<Result<bool>> Handle(SensorReadingCreateCommand request, CancellationToken cancellationToken)
@@ -66,16 +65,13 @@ public class SensorReadingCreateCommandHandler(
             Unit = d.Unit,
         }).ToList();
         
-        var SensorDataList = new List<SensorReading>();
         
         foreach (var reading in sensorReadings)
         {
             var result = mapper.Map<SensorReading>(reading);
-            SensorDataList.Add(result);
-           // await sensorReadingsRepository.Add(result);
+            await sensorReadingsRepository.Add(result);
         }
-        rabbitMQProducer.Publish(SensorDataList);
-        // await unitOfWork.CommitAsync();
+        await unitOfWork.CommitAsync();
         return Result<bool>.Success(true);
     }
 }

@@ -1,4 +1,4 @@
-namespace AuthenticationService.Application.UseCases.Login;
+namespace AuthenticationService.Application.UseCases.LoginUser;
 
 public class LoginUserResponse
 {

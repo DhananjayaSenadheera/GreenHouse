@@ -1,4 +1,4 @@
-namespace AccessControlService.Application.Requests.User.DTos;
+namespace AccessControlService.Application.Requests.User.DTOs;
 
 public class GetUserDto
 {

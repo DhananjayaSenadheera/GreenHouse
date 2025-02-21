@@ -1,6 +1,6 @@
 using AccessControlService.Application.Requests.User.Commands.Create;
 using AccessControlService.Application.Requests.User.Commands.Update;
-using AccessControlService.Application.Requests.User.DTos;
+using AccessControlService.Application.Requests.User.DTOs;
 using AutoMapper;
 
 namespace AccessControlService.Application.Requests.User.Mappers;

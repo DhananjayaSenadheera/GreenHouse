@@ -1,7 +1,7 @@
 using FluentValidation;
 using SensorDataService.Application.Requests.SensorReadings.Commands.Create;
 
-namespace SensorDataService.Application.Requests.Sonsors.Validators;
+namespace SensorDataService.Application.Requests.SensorReadings.Validators;
 
 public class SensorReadingsCreateCommandValidator : AbstractValidator<SensorReadingCreateCommand>
 {

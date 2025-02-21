@@ -7,8 +7,8 @@ using SensorDataService.Application.Behaviors;
 using SensorDataService.Application.Helper;
 using SensorDataService.Application.Mappings;
 using SensorDataService.Application.Requests.GreenHouses.Validators;
+using SensorDataService.Application.Requests.SensorReadings.Validators;
 using SensorDataService.Application.Requests.Sensors.Validators;
-using SensorDataService.Application.Requests.Sonsors.Validators;
 using SensorDataService.Application.Settings;
 
 namespace SensorDataService.Application.DependencyInjection;

@@ -1,6 +1,6 @@
 using MediatR;
 using SensorDataService.Application.Helper;
-using SensorDataService.Application.Requests.GreenHouses.Dtos;
+using SensorDataService.Application.Requests.GreenHouses.DTOs;
 
 namespace SensorDataService.Application.Requests.GreenHouses.Commands.Create;
 

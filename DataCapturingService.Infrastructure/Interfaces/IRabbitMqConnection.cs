@@ -1,7 +1,6 @@
-using Microsoft.EntityFrameworkCore.Metadata;
 using RabbitMQ.Client;
 
-namespace SensorDataService.Infrastructure.Interfaces;
+namespace DataCapturingService.Infrastructure.Interfaces;
 
 public interface IRabbitMqConnection
 {

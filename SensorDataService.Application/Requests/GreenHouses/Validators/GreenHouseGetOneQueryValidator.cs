@@ -1,5 +1,6 @@
 using FluentValidation;
 using SensorDataService.Application.Requests.GreenHouses.Quaries.Get;
+using SensorDataService.Application.Requests.GreenHouses.Quaries.Get.ById;
 
 namespace SensorDataService.Application.Requests.GreenHouses.Validators;
 

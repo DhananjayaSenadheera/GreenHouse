@@ -1,7 +1,7 @@
 using AutoMapper;
 using MediatR;
 using SensorDataService.Application.Helper;
-using SensorDataService.Application.Requests.GreenHouses.Dtos;
+using SensorDataService.Application.Requests.GreenHouses.DTOs;
 using SensorDataService.Domain.Interfaces;
 
 namespace SensorDataService.Application.Requests.GreenHouses.Quaries.Get.ByCode;

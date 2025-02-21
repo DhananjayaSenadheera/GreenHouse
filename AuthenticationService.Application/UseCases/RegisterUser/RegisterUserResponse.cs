@@ -1,4 +1,4 @@
-namespace AuthenticationService.Application.UseCases;
+namespace AuthenticationService.Application.UseCases.RegisterUser;
 
 public class RegisterUserResponse
 {
