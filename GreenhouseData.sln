@@ -4,17 +4,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6B662E0C-65C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthenticationService", "AuthenticationService", "{76802F51-CF7A-4710-A516-F9FDF10C1ED2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SensorDataService", "SensorDataService", "{5269240D-CACA-409E-932E-AB02C69B2DFA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStorageService", "DataStorageService", "{5269240D-CACA-409E-932E-AB02C69B2DFA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationService", "NotificationService", "{9D171908-4692-4D57-A2AA-B62906C1724C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.API", "SensorDataService.API\SensorDataService.API.csproj", "{783314AC-C5E1-4181-8886-85F17F89BF87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorageService.API", "DataStorageService.API\DataStorageService.API.csproj", "{783314AC-C5E1-4181-8886-85F17F89BF87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.Domain", "SensorDataService.Domain\SensorDataService.Domain.csproj", "{28F0FD4A-2606-492C-830E-6A97AB2C1AB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorageService.Domain", "DataStorageService.Domain\DataStorageService.Domain.csproj", "{28F0FD4A-2606-492C-830E-6A97AB2C1AB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.Application", "SensorDataService.Application\SensorDataService.Application.csproj", "{43CF60AF-5E50-4642-9D0C-5610621624DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorageService.Application", "DataStorageService.Application\DataStorageService.Application.csproj", "{43CF60AF-5E50-4642-9D0C-5610621624DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorDataService.Infrastructure", "SensorDataService.Infrastructure\SensorDataService.Infrastructure.csproj", "{4287B150-E568-4094-946D-DF8E89F16DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorageService.Infrastructure", "DataStorageService.Infrastructure\DataStorageService.Infrastructure.csproj", "{4287B150-E568-4094-946D-DF8E89F16DFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService.Domain", "AuthenticationService.Domain\AuthenticationService.Domain.csproj", "{D55195A2-61E3-433C-9913-F680B7B5DCC2}"
 EndProject
