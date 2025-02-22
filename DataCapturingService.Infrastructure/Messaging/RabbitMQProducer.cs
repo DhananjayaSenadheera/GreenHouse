@@ -1,11 +1,11 @@
 using System.Text;
 using System.Text.Json;
-using DataCapturingService.Infrastructure.Interfaces;
 using DataCapturingService.Domain.Domain;
 using DataCapturingService.Domain.Interfaces;
+using DataCapturingService.Infrastructure.Messaging.Interfaces;
 using RabbitMQ.Client;
 
-namespace DataCapturingService.Infrastructure.Services;
+namespace DataCapturingService.Infrastructure.Messaging;
 
 public class RabbitMqProducer : IRabbitMqProducer
 {

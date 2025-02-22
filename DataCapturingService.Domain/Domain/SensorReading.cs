@@ -7,6 +7,4 @@ public class SensorReading
     public double Value { get; set; }
     public string Unit { get; set; }
 
-    // Navigation Property
-   // public Sensor Sensor { get; set; }
 }

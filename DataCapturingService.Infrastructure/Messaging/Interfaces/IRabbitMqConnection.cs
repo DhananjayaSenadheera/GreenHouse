@@ -1,6 +1,6 @@
 using RabbitMQ.Client;
 
-namespace DataCapturingService.Infrastructure.Interfaces;
+namespace DataCapturingService.Infrastructure.Messaging.Interfaces;
 
 public interface IRabbitMqConnection
 {

@@ -1,7 +1,7 @@
 using DataCapturingService.Domain.Interfaces;
-using DataCapturingService.Infrastructure.Configurations;
-using DataCapturingService.Infrastructure.Interfaces;
-using DataCapturingService.Infrastructure.Services;
+using DataCapturingService.Infrastructure.Messaging;
+using DataCapturingService.Infrastructure.Messaging.Connections;
+using DataCapturingService.Infrastructure.Messaging.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

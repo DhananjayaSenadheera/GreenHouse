@@ -70,8 +70,7 @@ public class RabbitMqConsumer : BackgroundService
             await _channel.BasicConsumeAsync(
                 queue: "Sensor_Readings_Queue",
                 autoAck: false,
-                consumer: consumer
-            );
+                consumer: consumer, cancellationToken: stoppingToken);
             
         }
         catch (Exception e)

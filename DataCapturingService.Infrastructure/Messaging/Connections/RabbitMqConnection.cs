@@ -1,7 +1,7 @@
-using DataCapturingService.Infrastructure.Interfaces;
+using DataCapturingService.Infrastructure.Messaging.Interfaces;
 using RabbitMQ.Client;
 
-namespace DataCapturingService.Infrastructure.Configurations;
+namespace DataCapturingService.Infrastructure.Messaging.Connections;
 
 public class RabbitMqConnection :  IRabbitMqConnection ,IDisposable
 {
