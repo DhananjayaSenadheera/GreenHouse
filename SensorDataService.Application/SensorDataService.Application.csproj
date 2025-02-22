@@ -22,7 +22,6 @@
 
     <ItemGroup>
       <Folder Include="Requests\SensorReadings\Quaries\" />
-      <Folder Include="Services\" />
     </ItemGroup>
 
 </Project>

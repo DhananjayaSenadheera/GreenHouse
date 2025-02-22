@@ -40,8 +40,7 @@ public static class ApplicationDependencyInjection
         services.AddTransient<SensorCodeSettings>();
         services.AddTransient<GreenHouseCodeSettings>();
         services.AddAutoMapper(typeof(ProfileMapper));
-
-        
+  
         return services;
     }
 }
