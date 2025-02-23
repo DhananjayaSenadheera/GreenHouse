@@ -1,10 +1,10 @@
 using AutoMapper;
-using DataStorageService.Application.Helper;
-using DataStorageService.Application.Requests.GreenHouses.DTOs;
+using DataAnalysingService.Application.Helper;
+using DataAnalysingService.Application.Requests.GreenHouses.DTOs;
+using DataAnalysingService.Domain.Interfaces;
 using MediatR;
-using DataStorageService.Domain.Interfaces;
 
-namespace DataStorageService.Application.Requests.GreenHouses.Quaries.GetAll;
+namespace DataAnalysingService.Application.Requests.GreenHouses.Quaries.GetAll;
 
 public class GreeHouseGetAllQueryHandler : IRequestHandler<GreeHouseGetAllQuery , Result<List<GreenHouseGetDto>>> 
 {

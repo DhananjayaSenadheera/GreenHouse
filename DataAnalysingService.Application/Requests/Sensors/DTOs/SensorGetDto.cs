@@ -1,6 +1,6 @@
-using DataStorageService.Domain.Entities;
+using DataAnalysingService.Domain.Entities;
 
-namespace DataStorageService.Application.Requests.Sensors.DTOs;
+namespace DataAnalysingService.Application.Requests.Sensors.DTOs;
 
 public class SensorGetDto
 {

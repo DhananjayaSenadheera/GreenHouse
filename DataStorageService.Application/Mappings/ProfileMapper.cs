@@ -19,7 +19,6 @@ public class ProfileMapper : Profile
         CreateMap<GreenHouseUpdateDto, Greenhouse>()
             .ForMember(desc => desc.UpdatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow))
             .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null && !(srcMember is string str &&  string.IsNullOrWhiteSpace(str)) ));
-        CreateMap<Greenhouse, GreenHouseGetDto>();
         
         //***Sensor***
         CreateMap<SensorCreateDto ,Sensor>()
@@ -29,7 +28,6 @@ public class ProfileMapper : Profile
        CreateMap<SensorUpdateDto , Sensor>()
            .ForMember(desc => desc.UpdatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow))
            .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null && !(srcMember is string str &&  string.IsNullOrWhiteSpace(str)) ));
-       CreateMap<Sensor, SensorGetDto>();                                                                                                                                                                 
        // .ForMember(dest => dest.Greenhouse, opt => opt.Ignore());  // Avoid mapping the entire Greenhouse object
        CreateMap<SensorReadingCreateDTo, SensorReading>()
            .ForMember(desc => desc.Id, opt => opt.MapFrom(_ => Guid.NewGuid()))

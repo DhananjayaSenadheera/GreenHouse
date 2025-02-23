@@ -1,10 +1,10 @@
 using AutoMapper;
-using DataStorageService.Application.Helper;
-using DataStorageService.Application.Requests.Sensors.DTOs;
+using DataAnalysingService.Application.Helper;
+using DataAnalysingService.Application.Requests.Sensors.DTOs;
+using DataAnalysingService.Domain.Interfaces;
 using MediatR;
-using DataStorageService.Domain.Interfaces;
 
-namespace DataStorageService.Application.Requests.Sensors.Quaries.GetAll;
+namespace DataAnalysingService.Application.Requests.Sensors.Quaries.GetAll;
 
 public class SensorGetAllQueryHandler : IRequestHandler<SensorGetAllQuery , Result<List<SensorGetDto>>>
 {

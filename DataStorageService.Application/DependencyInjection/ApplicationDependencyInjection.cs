@@ -24,14 +24,11 @@ public static class ApplicationDependencyInjection
         services.AddValidatorsFromAssemblyContaining<GreenHouseCreateCommandValidator>(); 
         services.AddValidatorsFromAssemblyContaining<GreenHouseUpdateCommandValidator>(); 
         services.AddValidatorsFromAssemblyContaining<GreenHouseDeleteCommandValidator>(); 
-        services.AddValidatorsFromAssemblyContaining<GreenHouseGetOneQueryValidator>(); 
         services.AddValidatorsFromAssemblyContaining<GreenHouseDeleteCommandValidator>();
-        services.AddValidatorsFromAssemblyContaining<GreenHouseGetOneByCodeQueryValidator>();
         
         //Sensor
         services.AddValidatorsFromAssemblyContaining<SensorCreateCommandValidator>();
         services.AddValidatorsFromAssemblyContaining<SensorUpdateCommandValidator>();
-        services.AddValidatorsFromAssemblyContaining<SensorGetOneCommandValidator>();
         
         //Sensor Readings
         services.AddValidatorsFromAssemblyContaining<SensorReadingsCreateCommandValidator>();

@@ -14,6 +14,7 @@ public static class InfDependencyInjection
         services.AddScoped<IGreenHouseRepository, GreenHouseRepository>();
         services.AddScoped<ISensorsRepository, SensorRepository>();
         services.AddScoped<ISensorReadingsRepository, SensorReadingRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWorkRepository>();
         services.DatabaseService(configuration);
         return services;
     }

@@ -1,7 +1,7 @@
-using DataStorageService.Application.Requests.GreenHouses.Quaries.Get.ByCode;
+using DataAnalysingService.Application.Requests.GreenHouses.Quaries.Get.ByCode;
 using FluentValidation;
 
-namespace DataStorageService.Application.Requests.GreenHouses.Validators;
+namespace DataAnalysingService.Application.Requests.GreenHouses.Validators;
 
 public class GreenHouseGetOneByCodeQueryValidator : AbstractValidator<GreenHouseGetOneByCodeQuery>
 {

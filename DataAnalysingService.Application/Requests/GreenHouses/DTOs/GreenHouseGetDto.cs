@@ -1,6 +1,6 @@
-using DataStorageService.Domain.Entities;
+using DataAnalysingService.Domain.Entities;
 
-namespace DataStorageService.Application.Requests.GreenHouses.DTOs;
+namespace DataAnalysingService.Application.Requests.GreenHouses.DTOs;
 
 public class GreenHouseGetDto
 {
