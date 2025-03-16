@@ -1,5 +1,6 @@
 using AutoMapper;
 using DataAnalysingService.Application.Requests.GreenHouses.DTOs;
+using DataAnalysingService.Application.Requests.SensorReadings.DTos;
 using DataAnalysingService.Application.Requests.Sensors.DTOs;
 using DataAnalysingService.Domain.Entities;
 
@@ -14,6 +15,9 @@ public class ProfileMapper : Profile
         CreateMap<Greenhouse, GreenHouseGetDto>();
         
         //***Sensor***
-       CreateMap<Sensor, SensorGetDto>();                                                                                                                                                                 
+       CreateMap<Sensor, SensorGetDto>();    
+       
+       //***Sensor***
+       CreateMap<SensorReading, SensorReadingGetDto>();
     }
 }

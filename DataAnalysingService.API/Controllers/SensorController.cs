@@ -18,7 +18,7 @@ public class SensorController(IMediator mediator) : ControllerBase
         }
         return Ok(result.Data);
     }
-    [HttpGet]
+    [HttpGet("GetAll")]
     public async Task<IActionResult> GetAll()
     {
         var result = await mediator.Send(new SensorGetAllQuery());

@@ -34,7 +34,7 @@ public class GreenHouseController(IMediator mediator) : ControllerBase
     [HttpGet("GetAll")]
     public async Task<IActionResult> GetAll()
     {
-        var reult = await mediator.Send(new GreeHouseGetAllQuery());
+        var reult = await mediator.Send(new GreenHouseGetAllQuery());
         if (!reult.IsSuccess)
             return NotFound(new { message = "Green House List Not Found" });
         return Ok(reult.Data);

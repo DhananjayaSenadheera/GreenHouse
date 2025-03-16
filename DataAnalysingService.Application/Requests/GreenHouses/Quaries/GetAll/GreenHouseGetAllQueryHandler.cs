@@ -6,18 +6,18 @@ using MediatR;
 
 namespace DataAnalysingService.Application.Requests.GreenHouses.Quaries.GetAll;
 
-public class GreeHouseGetAllQueryHandler : IRequestHandler<GreeHouseGetAllQuery , Result<List<GreenHouseGetDto>>> 
+public class GreenHouseGetAllQueryHandler : IRequestHandler<GreenHouseGetAllQuery , Result<List<GreenHouseGetDto>>> 
 {
     private readonly IGreenHouseRepository _greenHouseRepository;
     private readonly IMapper _mapper;
 
-    public GreeHouseGetAllQueryHandler(IGreenHouseRepository greenHouseRepository, IMapper mapper)
+    public GreenHouseGetAllQueryHandler(IGreenHouseRepository greenHouseRepository, IMapper mapper)
     {
         _greenHouseRepository = greenHouseRepository;
         _mapper = mapper;
     }
     
-    public async Task<Result<List<GreenHouseGetDto>>> Handle(GreeHouseGetAllQuery request, CancellationToken cancellationToken)
+    public async Task<Result<List<GreenHouseGetDto>>> Handle(GreenHouseGetAllQuery request, CancellationToken cancellationToken)
     {
         try
         {
