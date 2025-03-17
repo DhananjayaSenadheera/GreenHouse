@@ -54,7 +54,9 @@ public class SensorReadingCreateCommandHandler(
                 d.Sensor_Code,
                 Sensor_Id = sensorMap[d.Sensor_Code],
                 d.Value,
-                d.Unit
+                d.Unit,
+                d.Plot_No,
+                d.CreatedAt
             })
             .ToList();
 
@@ -63,6 +65,8 @@ public class SensorReadingCreateCommandHandler(
             Sensor_Id = sensorMap[d.Sensor_Code],
             Value = d.Value,
             Unit = d.Unit,
+            Plot_No = d.Plot_No,
+            CreatedAt = d.CreatedAt
         }).ToList();
         
         

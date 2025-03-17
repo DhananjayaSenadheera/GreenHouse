@@ -25,7 +25,6 @@ public class RabbitMqConsumer : BackgroundService
         _serviceProvider = serviceProvider;
         _rabbitMqConnection = rabbitMqConnection;
         
-        
     }
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -53,7 +52,7 @@ public class RabbitMqConsumer : BackgroundService
                         var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
                         await mediator.Send(new SensorReadingCreateCommand
                         {
-                            DataList = new List<SensorReadingCreateDTo> { sensorData }
+                             DataList = new List<SensorReadingCreateDTo> { sensorData }
                         });
                     }
 

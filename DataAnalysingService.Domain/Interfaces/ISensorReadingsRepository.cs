@@ -6,4 +6,5 @@ public interface ISensorReadingsRepository
 {
     Task <IEnumerable<SensorReading>> GetAll();
     Task <SensorReading> GetOneById(Guid guid);
+    Task<List<SensorReading>> GetAllInclude();
 }

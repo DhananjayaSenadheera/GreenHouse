@@ -14,7 +14,7 @@ public class SensorReadingsGetAllQueryHandler(ISensorReadingsRepository sensorRe
     {
         try
         {
-            var result = await sensorReadingsRepository.GetAll();
+            var result = await sensorReadingsRepository.GetAllInclude();
             if (result == null)
             {
                 return Result<List<SensorReadingGetDto>>.Failure("Failed to get sensor reading list");

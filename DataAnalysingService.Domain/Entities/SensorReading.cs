@@ -8,8 +8,9 @@ public class SensorReading
 
     public double Value { get; set; }
     public string Unit { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; }
+
+    public string Plot_No { get; set; }
     // Foreign Key
     [ForeignKey("Sensor")]
     public Guid Sensor_Id { get; set; }

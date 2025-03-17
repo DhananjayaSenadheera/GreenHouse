@@ -18,6 +18,15 @@ public class ProfileMapper : Profile
        CreateMap<Sensor, SensorGetDto>();    
        
        //***Sensor***
-       CreateMap<SensorReading, SensorReadingGetDto>();
+       //CreateMap<SensorReading, SensorReadingGetDto>();
+       CreateMap<SensorReading, SensorReadingGetDto>()
+           .ForMember(dest => dest.Sensor_Code, opt => opt.MapFrom(src => src.Sensor.Sensor_Code))
+           .ForMember(dest => dest.Sensor_Name, opt => opt.MapFrom(src => src.Sensor.Name))
+           .ForMember(dest => dest.GrnHouse_code, opt => opt.MapFrom(src => src.Sensor.Greenhouse.GreenHouse_Code))
+           .ForMember(dest => dest.GrnHouse_name, opt => opt.MapFrom(src => src.Sensor.Greenhouse.Name))
+           .ForMember(dest => dest.Value, opt => opt.MapFrom(src => src.Value))
+           .ForMember(dest => dest.Unit, opt => opt.MapFrom(src => src.Unit))
+           .ForMember(dest => dest.Plot_No, opt => opt.MapFrom(src => src.Plot_No))
+           .ForMember(dest => dest.Created_Date, opt => opt.MapFrom(src => src.CreatedAt));
     }
 }

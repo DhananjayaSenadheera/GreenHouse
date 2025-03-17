@@ -31,8 +31,10 @@ public class ProfileMapper : Profile
        // .ForMember(dest => dest.Greenhouse, opt => opt.Ignore());  // Avoid mapping the entire Greenhouse object
        CreateMap<SensorReadingCreateDTo, SensorReading>()
            .ForMember(desc => desc.Id, opt => opt.MapFrom(_ => Guid.NewGuid()))
-           .ForMember(opt => opt.CreatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow))
-           .ForMember(opt => opt.UpdatedAt, opt => opt.MapFrom(_ => DateTime.UtcNow));
+       .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt));
+
+
+
 
 
 
