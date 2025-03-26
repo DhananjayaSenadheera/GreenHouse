@@ -21,7 +21,7 @@ public class SensorGetAllQueryHandler : IRequestHandler<SensorGetAllQuery , Resu
     {
         try
         {
-            var result = await _sensorsRepository.GetAll();
+            var result = await _sensorsRepository.GetAllInclude();
             if (result is null)
                 return Result<List<SensorGetDto>>.Failure("Error while retrieving sensors");
             return Result<List<SensorGetDto>>.Success(_mapper.Map<List<SensorGetDto>>(result));

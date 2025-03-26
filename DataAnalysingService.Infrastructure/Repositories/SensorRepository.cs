@@ -10,6 +10,12 @@ public class SensorRepository(IGenericRepository<Sensor> repository) : ISensorsR
         return await repository.GetAllAsync();
     }
 
+    public async Task<List<Sensor>> GetAllInclude()
+    {
+        var result = await repository.GetAllAsyncInclude(x => x.Greenhouse); 
+        return result.ToList();
+    }
+
     public async Task<Sensor?> GetOneById(Guid guid)
     {
         return await repository.GetByIdAsync(guid);

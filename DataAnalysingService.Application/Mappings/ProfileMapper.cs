@@ -15,7 +15,9 @@ public class ProfileMapper : Profile
         CreateMap<Greenhouse, GreenHouseGetDto>();
         
         //***Sensor***
-       CreateMap<Sensor, SensorGetDto>();    
+        CreateMap<Sensor, SensorGetDto>()
+            .ForMember(dest => dest.GreenHouse_Code, opt => opt.MapFrom(src => src.Greenhouse.GreenHouse_Code))
+            .ForMember(dest => dest.GreenHouse_Name, opt => opt.MapFrom(src => src.Greenhouse.Name));
        
        //***Sensor***
        //CreateMap<SensorReading, SensorReadingGetDto>();
